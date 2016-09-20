@@ -3,3 +3,15 @@
 
 FROM nginx
 
+MAINTAINER Daryl Kranec <dkranec@gmail.com>
+
+COPY data/nginx.conf /etc/nginx/nginx.conf
+
+COPY data/http /srv
+
+COPY data/sites-enabled /srv/
+
+CMD ["nginx"]
+
+EXPOSE 80
+EXPOSE 443
