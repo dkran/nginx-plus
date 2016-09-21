@@ -5,6 +5,8 @@ FROM nginx
 
 MAINTAINER Daryl Kranec <dkranec@gmail.com>
 
+ENV DKRAN_NGX 0.1
+
 CMD ["rm","-rf","/etc/nginx/conf.d"]
 
 COPY data/nginx.conf /etc/nginx/nginx.conf
