@@ -19,7 +19,7 @@ CMD ["rm","-rf","/user/share/nginx"]
 
 CMD ["mkdir","/etc/nginx/certs"]
 
-VOLUME ["/srv/http","/etc/nginx/nginx.conf","/etc/nginx/sites-enabled","/etc/nginx/certs"]
+VOLUME ["/srv/http","/etc/nginx/","/var/log/nginx/"]
 
 
 CMD ["nginx", "-g", "daemon off;"]
