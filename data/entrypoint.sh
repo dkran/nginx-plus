@@ -7,9 +7,9 @@ bootstrapDir="/usr/share/nginx-bootstrap"
 if [ -e "$bootstrapDir/new-flag" ]
 then
   echo "Extracting files"
-  gosu root tar xvf $bootstrapDir/etc-nginx.tar.gz -C /etc/nginx
-  gosu root tar xvf $bootstrapDir/srv-http.tar.gz -C /srv/http
-  gosu root rm $bootstrapDir/new-flag
+  gosu nginx tar xvf $bootstrapDir/etc-nginx.tar.gz -C /etc/nginx
+  gosu nginx tar xvf $bootstrapDir/srv-http.tar.gz -C /srv/http
+  gosu nginx rm $bootstrapDir/new-flag
 fi
 
-exec gosu www-data nginx -g daemon-off;
+exec gosu nginx nginx -g daemon-off;

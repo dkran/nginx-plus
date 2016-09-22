@@ -18,9 +18,15 @@ RUN set -x \
 	&& gosu nobody true \
 	&& apt-get purge -y --auto-remove ca-certificates wget
 
+CMD ["usermod", "--uid", "1010", "nginx"]
+
+CMD ["groupmod", "--gid", "1010", "nginx"]
+
 CMD ["rm","-rf","/etc/nginx/conf.d"]
 
 CMD ["mkdir", "/usr/share/nginx-bootstrap"]
+
+CMD ["chown","-R","1010:1010","/etc/nginx","/var/log/nginx","/srv/http","/usr/share/nginx-bootstrap"]
 
 COPY data/etc-nginx.tar.gz /usr/share/nginx-bootstrap/
 
@@ -30,13 +36,7 @@ COPY data/new-flag /usr/share/nginx-bootstrap/
 
 COPY data/entrypoint.sh /
 
-CMD ["chmod","700","/entrypoint.shdo"]
-# These commands will be phased out by the archive files I will extract on first run.
-
-#COPY data/nginx.conf /etc/nginx/nginx.conf
-#COPY data/http /srv
-#COPY data/sites-enabled /etc/nginx/
-#CMD ["mkdir","/etc/nginx/certs"]
+CMD ["chmod","700","/entrypoint.sh"]
 
 CMD ["rm","-rf","/usr/share/nginx"]
 
