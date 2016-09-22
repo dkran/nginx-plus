@@ -18,6 +18,8 @@ COPY data/srv-http.tar.gz /usr/share/nginx-bootstrap/
 COPY data/new-flag /usr/share/nginx-bootstrap/
 
 COPY data/entrypoint.sh /
+
+CMD ["chmod","700","/entrypoint.sh"]
 # These commands will be phased out by the archive files I will extract on first run.
 
 #COPY data/nginx.conf /etc/nginx/nginx.conf
