@@ -1,0 +1,15 @@
+# docker-compose file for my typical setup.  Feel free to use or modify for yourself,
+# just having something standard ready.
+
+version: "2"
+services: 
+  nginx:
+    image: dkran/nginx-plus
+    container_name: nginx
+    ports:
+     - "80:80"
+     - "443:443"
+    volumes:
+     - "/srv/http:/srv/http"
+     - "/srv/nginx/:/etc/nginx"
+     - "/srv/logs/nginx:/var/log/nginx"
