@@ -36,7 +36,7 @@ COPY data/new-flag /usr/share/nginx-bootstrap/
 
 COPY data/entrypoint.sh /
 
-CMD ["chmod","700","/entrypoint.sh"]
+CMD ["chmod","775","/entrypoint.sh"]
 
 CMD ["rm","-rf","/usr/share/nginx"]
 
