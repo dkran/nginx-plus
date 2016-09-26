@@ -7,13 +7,12 @@ Minimally modified nginx container suiting my needs
   * ``437``
 
 * Volumes:
-  * ``/etc/nginx/nginx.conf``
-  * ``/etc/nginx/certs``
-  * ``/etc/nginx/sites-enabled``
-  * ``/srv/http``
+  * ``/etc/nginx/`` - nginx Configuration Files
+  * ``/srv/http`` - Main directory to serve files from
+  * ``/var/log/nginx`` - Logs from the server.
 
-You can probably guess what most of these do.  I prefer to create a ``sites-available`` folder and symlink
-servers in ``sites-enabled`` to those, so it's easy to turn a specific server on or off.
+You can probably guess what most of these do.  I prefer to create a ``/etc/nginx/sites-available`` folder and symlink
+servers in ``/etc/nginx/sites-enabled`` to those, so it's easy to turn a specific server on or off.
 
  * TODO:
    * create a ``docker-compose.yml`` file for easy launching
