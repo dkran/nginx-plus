@@ -18,15 +18,15 @@ RUN set -x \
 	&& gosu nobody true \
 	&& apt-get purge -y --auto-remove ca-certificates wget
 
-CMD ["usermod", "--uid", "1010", "nginx"]
+RUN ["usermod", "--uid", "1010", "nginx"]
 
-CMD ["groupmod", "--gid", "1010", "nginx"]
+RUN ["groupmod", "--gid", "1010", "nginx"]
 
-CMD ["rm","-rf","/etc/nginx/conf.d"]
+RUN ["rm","-rf","/etc/nginx/conf.d"]
 
-CMD ["mkdir", "/usr/share/nginx-bootstrap"]
+RUN ["mkdir", "/usr/share/nginx-bootstrap"]
 
-CMD ["chown","-R","1010:1010","/etc/nginx","/var/log/nginx","/srv/http","/usr/share/nginx-bootstrap"]
+RUN ["chown","-R","1010:1010","/etc/nginx","/var/log/nginx","/srv/http","/usr/share/nginx-bootstrap"]
 
 COPY data/etc-nginx.tar.gz /usr/share/nginx-bootstrap/
 
@@ -36,9 +36,9 @@ COPY data/new-flag /usr/share/nginx-bootstrap/
 
 COPY data/entrypoint.sh /
 
-CMD ["chmod","775","/entrypoint.sh"]
+RUN ["chmod","775","/entrypoint.sh"]
 
-CMD ["rm","-rf","/usr/share/nginx"]
+RUN ["rm","-rf","/usr/share/nginx"]
 
 VOLUME ["/srv/http","/etc/nginx/","/var/log/nginx/"]
 
