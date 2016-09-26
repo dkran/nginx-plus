@@ -30,7 +30,7 @@ CMD ["chown","-R","1010:1010","/etc/nginx","/var/log/nginx","/srv/http","/usr/sh
 
 COPY data/etc-nginx.tar.gz /usr/share/nginx-bootstrap/
 
-COPY data/srv-http.tar.gz /usr/share/nginx-bootstrap/
+COPY data/http.tar.gz /usr/share/nginx-bootstrap/
 
 COPY data/new-flag /usr/share/nginx-bootstrap/
 
